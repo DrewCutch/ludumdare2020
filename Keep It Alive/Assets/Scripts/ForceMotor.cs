@@ -5,7 +5,7 @@ using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody))]
 public class ForceMotor : MonoBehaviour
 {
     private Transform _target;
@@ -13,19 +13,27 @@ public class ForceMotor : MonoBehaviour
     
     public bool On { get; private set; }
 
+    public bool Hopper;
+    public float HopInterval;
+
     public MotorMode Mode { get; private set; }
 
-    public float DesiredDistance { get; private set; }
+    public float MaxDistance { get; private set; }
+
+    public float MinDistance { get; private set; }
 
     public float Speed;
     public float MaxSpeed;
     
-    private Rigidbody2D _rb;
+    private Rigidbody _rb;
+
+    private float _hopWait;
 
     // Start is called before the first frame update
     void Start()
     {
-        _rb = gameObject.GetComponent<Rigidbody2D>();
+        _rb = gameObject.GetComponent<Rigidbody>();
+        _hopWait = 0;
     }
 
     void FixedUpdate()
@@ -38,24 +46,39 @@ public class ForceMotor : MonoBehaviour
             : (_target.position - transform.position);
 
         // If closer than desired distance, go in reverse
-        int dir = dist.sqrMagnitude > DesiredDistance * DesiredDistance ? 1 : -1;
+        int dir = dist.sqrMagnitude > MaxDistance * MaxDistance ? 1 : 
+            dist.sqrMagnitude < MinDistance * MinDistance ? -1 :
+            0;
 
-        if (_rb.velocity.sqrMagnitude < MaxSpeed * MaxSpeed)
+        if (_rb.velocity.sqrMagnitude < MaxSpeed * MaxSpeed && !Hopper)
             _rb.AddForce(dist.normalized * Speed * dir);
+
+        if (!Hopper)
+            return;
+
+        _hopWait += Time.deltaTime;
+
+        if (_hopWait < HopInterval)
+            return;
+
+        _rb.AddForce((dist.normalized + Vector3.up) * Speed * dir, ForceMode.Impulse);
+        _hopWait -= HopInterval;
     }
 
-    public void SetTarget(Transform transform, float desiredDistance=0)
+    public void SetTarget(Transform transform, float minDistance, float maxDistance)
     {
         _target = transform;
-        DesiredDistance = desiredDistance;
+        MinDistance = minDistance;
+        MaxDistance = maxDistance;
         Mode = MotorMode.Target;
         On = true;
     }
 
-    public void SetDirection(Vector3 direction, float desiredDistance = 0)
+    public void SetDirection(Vector3 direction, float minDistance, float maxDistance)
     {
         _direction = direction;
-        DesiredDistance = desiredDistance;
+        MinDistance = minDistance;
+        MaxDistance = maxDistance;
         Mode = MotorMode.Direction;
         On = true;
     }
