@@ -14,7 +14,7 @@ public class Hero : MonoBehaviour
     void Start()
     {
         _motor = gameObject.GetComponent<ForceMotor>();
-        _motor.SetTarget(TopOfScreen);
+        _motor.SetTarget(TopOfScreen, 1, 2);
     }
 
     // Update is called once per frame
