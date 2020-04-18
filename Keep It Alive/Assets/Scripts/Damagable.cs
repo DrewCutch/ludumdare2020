@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class Damagable : MonoBehaviour
 {
-    [SerializeField]
-    private int _health;
+    public event Action OnDestroyed;
 
     public bool Destroyed { get; private set; }
+
+    public bool DamageFromCollision;
 
     public int Health
     {
@@ -17,7 +18,9 @@ public class Damagable : MonoBehaviour
         private set => _health = value;
     }
 
-    public event Action OnDestroyed;
+    [SerializeField]
+    private int _health;
+
     // Start is called before the first frame update
     void Start()
     {
