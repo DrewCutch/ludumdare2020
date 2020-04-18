@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ForceMotor))]
-[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Actor))]
-public class MeleeEnemy : MonoBehaviour
+[RequireComponent(typeof(Weapon))]
+public class Enemy : MonoBehaviour
 {
-    public float Range;
     public int AttackCost;
-    public int AttackDamage;
 
     private Actor _self;
     private ForceMotor _motor;
+    private Weapon _weapon;
+
 
     private Actor _target;
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class MeleeEnemy : MonoBehaviour
     {
         _self = gameObject.GetComponent<Actor>();
         _motor = gameObject.GetComponent<ForceMotor>();
+        _weapon = gameObject.GetComponent<Weapon>();
     }
 
     // Update is called once per frame
@@ -29,15 +31,17 @@ public class MeleeEnemy : MonoBehaviour
             return;
 
         // If in range and has energy to attack
-        if (Vector3.Distance(transform.position, _target.transform.position) < Range && _self.HasEnergy(AttackCost))
+        if (Vector3.Distance(transform.position, _target.transform.position) < _weapon.WeaponType.MaxRange &&
+            Vector3.Distance(transform.position, _target.transform.position) > _weapon.WeaponType.MinRange && 
+            _self.HasEnergy(AttackCost))
         {
-            _target.Health.Damage(AttackDamage);
+            _weapon.Attack(_target.transform);
             _self.UseEnergy(AttackCost);
         }
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
         Actor enemy = other.gameObject.GetComponent<Actor>();
 
@@ -55,10 +59,10 @@ public class MeleeEnemy : MonoBehaviour
 
         print("setting target");
         _target = enemy;
-        _motor.SetTarget(enemy.transform, Range);
+        _motor.SetTarget(enemy.transform, _weapon.WeaponType.MinRange, _weapon.WeaponType.MaxRange);
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit(Collider other)
     {
         Actor enemy = other.gameObject.GetComponent<Actor>();
 
