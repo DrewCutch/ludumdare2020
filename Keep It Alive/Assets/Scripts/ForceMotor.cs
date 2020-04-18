@@ -15,9 +15,11 @@ public class ForceMotor : MonoBehaviour
 
     public MotorMode Mode { get; private set; }
 
+    public float DesiredDistance { get; private set; }
+
     public float Speed;
     public float MaxSpeed;
-
+    
     private Rigidbody2D _rb;
 
     // Start is called before the first frame update
@@ -26,30 +28,34 @@ public class ForceMotor : MonoBehaviour
         _rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!On)
             return;
 
-        Vector3 direction = Mode == MotorMode.Direction
+        Vector3 dist = Mode == MotorMode.Direction
             ? _direction
-            : (_target.position - transform.position).normalized;
-        
+            : (_target.position - transform.position);
+
+        // If closer than desired distance, go in reverse
+        int dir = dist.sqrMagnitude > DesiredDistance * DesiredDistance ? 1 : -1;
+
         if (_rb.velocity.sqrMagnitude < MaxSpeed * MaxSpeed)
-            _rb.AddForce(direction * Speed);
+            _rb.AddForce(dist.normalized * Speed * dir);
     }
 
-    public void SetTarget(Transform transform)
+    public void SetTarget(Transform transform, float desiredDistance=0)
     {
         _target = transform;
+        DesiredDistance = desiredDistance;
         Mode = MotorMode.Target;
         On = true;
     }
 
-    public void SetDirection(Vector3 direction)
+    public void SetDirection(Vector3 direction, float desiredDistance = 0)
     {
         _direction = direction;
+        DesiredDistance = desiredDistance;
         Mode = MotorMode.Direction;
         On = true;
     }
