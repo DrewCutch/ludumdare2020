@@ -52,8 +52,7 @@ public class MeleeEnemy : MonoBehaviour
             Vector3.Distance(transform.position, enemy.transform.position) >
             Vector3.Distance(transform.position, _target.transform.position))
             return;
-
-        print("setting target");
+        
         _target = enemy;
         _motor.SetTarget(enemy.transform, Range);
     }
