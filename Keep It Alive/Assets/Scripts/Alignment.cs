@@ -6,6 +6,7 @@ using UnityEngine;
 [Flags]
 public enum Alignment
 {
-    Skeleton = 1 << 0,
-    Hero = 1 << 1
+    Hero = 1 << 0,
+    Skeleton = 1 << 1,
+    Orc = 1 << 2
 }
