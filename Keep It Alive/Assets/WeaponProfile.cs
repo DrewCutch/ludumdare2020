@@ -54,8 +54,10 @@ public class WeaponProfile : ScriptableObject
         float theta = (
             Mathf.Acos(Mathf.Clamp(((g * x * x) / (v * v) + y) / (Mathf.Sqrt(y * y + x * x)), -1, 1)) + (Mathf.Abs(y) >= 0.1 ? Mathf.Atan(x / -y) : 0)) / 2;
 
-        Vector3 vel = horizontalOffset.normalized * Mathf.Cos(theta) * ProjectileForce +
-                      verticalOffset.normalized * Mathf.Sin(theta) * ProjectileForce;
+        float xDir = y > 0 ? 1 : -1;
+
+        Vector3 vel = horizontalOffset.normalized * Mathf.Cos(theta) * ProjectileForce * xDir +
+                      Vector3.up * Mathf.Sin(theta) * ProjectileForce;
 
         body.AddForce(vel, ForceMode.VelocityChange);
     }
