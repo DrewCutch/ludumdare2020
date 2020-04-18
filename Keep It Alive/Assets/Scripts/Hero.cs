@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ForceMotor))]
+[RequireComponent(typeof(Actor))]
 public class Hero : MonoBehaviour
 {
     public Transform TopOfScreen;
