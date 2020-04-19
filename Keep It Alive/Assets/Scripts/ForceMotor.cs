@@ -8,7 +8,7 @@ using Vector3 = UnityEngine.Vector3;
 [RequireComponent(typeof(Rigidbody))]
 public class ForceMotor : MonoBehaviour
 {
-    private Transform _target;
+    public Transform Target { get; private set; }
     private Vector3 _direction;
     
     public bool On { get; private set; }
@@ -42,9 +42,12 @@ public class ForceMotor : MonoBehaviour
         if (!On)
             return;
 
+        if (Mode == MotorMode.Target && Target == null)
+            return;
+
         Vector3 dist = Mode == MotorMode.Direction
             ? _direction
-            : (_target.position - transform.position);
+            : (Target.position - transform.position);
 
         // If closer than desired distance, go in reverse
         int dir = dist.sqrMagnitude > MaxDistance * MaxDistance ? 1 : 
@@ -68,7 +71,7 @@ public class ForceMotor : MonoBehaviour
 
     public void SetTarget(Transform transform, float minDistance, float maxDistance)
     {
-        _target = transform;
+        Target = transform;
         MinDistance = minDistance;
         MaxDistance = maxDistance;
         Mode = MotorMode.Target;
