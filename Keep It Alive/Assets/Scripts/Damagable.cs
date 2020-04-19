@@ -3,13 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.Events;
 
+[RequireComponent(typeof(Collider))]
 public class Damagable : MonoBehaviour
 {
-    [SerializeField]
-    private int _health;
+    public UnityEvent OnDestroyed;
 
     public bool Destroyed { get; private set; }
+
+    public float DamageFromCollision;
+
+    private Collider _collider;
 
     public int Health
     {
@@ -17,11 +22,15 @@ public class Damagable : MonoBehaviour
         private set => _health = value;
     }
 
-    public event Action OnDestroyed;
+    [SerializeField]
+    private int _health;
+
     // Start is called before the first frame update
     void Start()
     {
         Destroyed = false;
+        
+        _collider = gameObject.GetComponent<Collider>();
     }
 
     public void Damage(int amount)
@@ -29,6 +38,7 @@ public class Damagable : MonoBehaviour
         Health -= amount;
         if (Health <= 0 && !Destroyed)
         {
+            print("destroyed!");
             OnDestroyed?.Invoke();
             Destroyed = true;
         }
@@ -38,5 +48,20 @@ public class Damagable : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (DamageFromCollision <= 0)
+            return;
+
+        Rigidbody otherRb = collision.gameObject.GetComponent<Rigidbody>();
+
+        if (otherRb == null)
+            return;
+
+        float impactStrength = collision.relativeVelocity.magnitude * otherRb.mass;
+
+        Damage((int) (impactStrength * DamageFromCollision));
     }
 }

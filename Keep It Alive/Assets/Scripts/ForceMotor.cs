@@ -24,6 +24,7 @@ public class ForceMotor : MonoBehaviour
 
     public float Speed;
     public float MaxSpeed;
+    public float HopScale;
     
     private Rigidbody _rb;
 
@@ -61,7 +62,7 @@ public class ForceMotor : MonoBehaviour
         if (_hopWait < HopInterval)
             return;
 
-        _rb.AddForce((dist.normalized + Vector3.up) * Speed * dir, ForceMode.Impulse);
+        _rb.AddForce((dist.normalized + Vector3.up * HopScale) * Speed * dir, ForceMode.Impulse);
         _hopWait -= HopInterval;
     }
 

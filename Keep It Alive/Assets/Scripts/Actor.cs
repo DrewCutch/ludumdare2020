@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Damagable))]
 public class Actor : MonoBehaviour
@@ -22,7 +23,7 @@ public class Actor : MonoBehaviour
     {
         Energy = 0;
         Health = gameObject.GetComponent<Damagable>();
-        Health.OnDestroyed += OnDie;
+        Health.OnDestroyed.AddListener(OnDie);
     }
 
     private void OnDie()
@@ -43,7 +44,7 @@ public class Actor : MonoBehaviour
         }
     }
 
-    public bool HasEnergy(int amount) => amount < Energy;
+    public bool HasEnergy(int amount) => amount <= Energy;
 
     public bool UseEnergy(int amount)
     {

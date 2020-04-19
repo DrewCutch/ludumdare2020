@@ -9,11 +9,12 @@ public class Draggable3D : MonoBehaviour
     public float DragStrength;
     public float Damping;
 
-    public float GroundOffset;
+    public float Lift;
 
     private Rigidbody _rb;
     private Plane _worldPlane;
 
+    private float _startHeight;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class Draggable3D : MonoBehaviour
 
     void OnMouseDown()
     {
-
+        _startHeight = transform.position.y;
     }
 
     void OnMouseDrag()
@@ -40,10 +41,15 @@ public class Draggable3D : MonoBehaviour
         Vector3 target = Vector3.zero;
         if (_worldPlane.Raycast(ray, out distance))
         {
-            target = ray.GetPoint(distance) + new Vector3(0, GroundOffset, 0);
+            target = ray.GetPoint(distance) + new Vector3(0, _startHeight + Lift, 0);
         }
 
         Vector3 dist = transform.position - target;
-        _rb.AddForce(-dist * DragStrength - _rb.velocity * Damping);
+        _rb.AddForce(-dist.normalized * DragStrength - _rb.velocity * Damping);
+
+        Quaternion rotation = Quaternion.identity * Quaternion.Inverse(_rb.rotation);
+        var torque = new Vector3(rotation.x, rotation.y, rotation.z) * rotation.w / Time.fixedDeltaTime;
+        _rb.AddTorque(torque, ForceMode.VelocityChange);
+        _rb.angularVelocity = Vector3.zero;
     }
 }
