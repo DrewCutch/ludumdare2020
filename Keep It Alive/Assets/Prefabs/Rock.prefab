@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2934481174577448056}
   - component: {fileID: 2934481174577448063}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,6 +124,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 0}
-  DragStrength: 3
-  Damping: 0.1
-  Lift: 0.1
+  GrabProfile: {fileID: 11400000, guid: 51abfc5181a272b4cb20f1b641122778, type: 2}
