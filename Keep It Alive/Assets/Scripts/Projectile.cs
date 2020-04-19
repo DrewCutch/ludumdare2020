@@ -39,13 +39,16 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if(Damage == 0)
+            return;
+
         Damagable damagable = collision.gameObject.GetComponent<Damagable>();
 
         if (damagable == null)
             return;
 
         damagable.Damage(Damage);
-
+        
         Destroy(gameObject);
     }
 }
