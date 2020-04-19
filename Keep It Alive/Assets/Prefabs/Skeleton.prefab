@@ -309,7 +309,7 @@ MonoBehaviour:
   HopInterval: 0.6
   Speed: 2.5
   MaxSpeed: 1
-  HopScale: 0
+  HopScale: 0.8
 --- !u!114 &6285132512948281649
 MonoBehaviour:
   m_ObjectHideFlags: 0
