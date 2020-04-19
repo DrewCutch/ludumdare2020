@@ -12,11 +12,16 @@ public class WeaponProfile : ScriptableObject
 
     public int Damage;
 
+    public float KnockBack;
+
     public bool IsRanged;
 
     public float ProjectileForce;
 
     public GameObject Projectile;
+
+
+    public float Lead;
 
     public bool Attack(Transform from, Transform to)
     {
@@ -40,7 +45,9 @@ public class WeaponProfile : ScriptableObject
         if (body == null)
             return;
 
-        Vector3 offset = target.position - origin.position;
+        Vector3 targetPos = target.position + Vector3.right * Lead;
+
+        Vector3 offset = targetPos - origin.position;
         Vector3 horizontalOffset = Vector3.ProjectOnPlane(offset, Vector3.up);
         Vector3 verticalOffset = offset - horizontalOffset;
 
@@ -62,6 +69,7 @@ public class WeaponProfile : ScriptableObject
         body.AddForce(vel, ForceMode.VelocityChange);
     }
 
+
     private void Melee(Transform origin, Transform target)
     {
         RaycastHit[] hits = Physics.RaycastAll(origin.position, (target.position - origin.position).normalized * MaxRange);
@@ -70,5 +78,12 @@ public class WeaponProfile : ScriptableObject
             .First(component => component != null);
 
         damagable.Damage(Damage);
+
+        Rigidbody body = hits.Select(hit => hit.rigidbody).First(rb => rb != null);
+
+        if (body == null)
+            return;
+
+        body.AddForce((target.position - origin.position).normalized * KnockBack, ForceMode.Impulse);
     }
 }

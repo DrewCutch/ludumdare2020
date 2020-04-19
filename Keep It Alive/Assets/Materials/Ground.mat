@@ -26,8 +26,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Boolean_C286B65F: 0
+    - Vector1_18E6D7D5: 1.46
+    - Vector1_64D0D947: -3.64
     - Vector1_E386B30C: 0.1
-    m_Colors: []
+    m_Colors:
+    - Color_A0A2474: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2490108457262098502
 MonoBehaviour:
   m_ObjectHideFlags: 11
