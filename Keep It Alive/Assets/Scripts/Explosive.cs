@@ -37,5 +37,7 @@ public class Explosive : MonoBehaviour
 
             body.AddForce(dir * Strength *  (1 / distance), ForceMode.Impulse);
         }
+
+        Shaker.MainCameraShaker.ShakeFrom(transform.position, Strength);
     }
 }
