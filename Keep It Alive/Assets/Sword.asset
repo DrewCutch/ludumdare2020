@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b3f7b6be52294469c2b56d73be8a08, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  MinRange: 1
-  MaxRange: 3
+  MinRange: 2
+  MaxRange: 4
   Damage: 10
   IsRanged: 0
   ProjectileForce: 0
