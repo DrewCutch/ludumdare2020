@@ -6,10 +6,8 @@ public class Draggable3D : MonoBehaviour
 {
 
     public Camera MainCamera;
-    public float DragStrength;
-    public float Damping;
 
-    public float Lift;
+    public GrabProfile GrabProfile;
 
     private Rigidbody _rb;
     private Plane _worldPlane;
@@ -41,11 +39,11 @@ public class Draggable3D : MonoBehaviour
         Vector3 target = Vector3.zero;
         if (_worldPlane.Raycast(ray, out distance))
         {
-            target = ray.GetPoint(distance) + new Vector3(0, _startHeight + Lift, 0);
+            target = ray.GetPoint(distance) + new Vector3(0, _startHeight + GrabProfile.Lift, 0);
         }
 
         Vector3 dist = transform.position - target;
-        _rb.AddForce(-dist.normalized * DragStrength - _rb.velocity * Damping);
+        _rb.AddForce(-dist * GrabProfile.DragStrength - _rb.velocity * GrabProfile.Damping);
 
         Quaternion rotation = Quaternion.identity * Quaternion.Inverse(_rb.rotation);
         var torque = new Vector3(rotation.x, rotation.y, rotation.z) * rotation.w / Time.fixedDeltaTime;
