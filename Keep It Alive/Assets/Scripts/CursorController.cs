@@ -6,6 +6,8 @@ public class CursorController : MonoBehaviour
 {
 
     // Start is called before the first frame update
+
+    Vector3 cursorCorrection = new Vector3(0, 0, 0);
     
     void Start()
     {
@@ -15,8 +17,8 @@ public class CursorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 worldPos = new Vector3(cursorPos.x, cursorPos.y, Camera.main.transform.position.z - 1);
+        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        cursorPos -= cursorCorrection;
         transform.position = cursorPos;
     }
 }
