@@ -10,6 +10,8 @@ public class Damagable : MonoBehaviour
 {
     public UnityEvent OnDestroyed;
 
+    public UnityEvent OnDamaged;
+
     public bool Destroyed { get; private set; }
 
     public float DamageFromCollision;
@@ -36,6 +38,7 @@ public class Damagable : MonoBehaviour
     public void Damage(int amount)
     {
         Health -= amount;
+        OnDamaged?.Invoke();
         if (Health <= 0 && !Destroyed)
         {
             print("destroyed!");
