@@ -37,9 +37,10 @@ public class Shaker : MonoBehaviour
         }
     }
 
-    public void ShakeFrom(Vector3 pos)
+    public void ShakeFrom(Vector3 pos, float intensity)
     {
-        gameObject.GetComponent<Rigidbody>().AddForce((pos - transform.position).normalized * Intensity, ForceMode.VelocityChange);
-        _time -= AutoRepeat;
+        Vector3 orthoAdjusted = new Vector3(pos.z, pos.y, pos.z);
+
+        gameObject.GetComponent<Rigidbody>().AddForce((orthoAdjusted - transform.position).normalized * intensity, ForceMode.VelocityChange);
     }
 }
