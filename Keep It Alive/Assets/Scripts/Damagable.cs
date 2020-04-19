@@ -5,7 +5,7 @@ using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Collider))]
 public class Damagable : MonoBehaviour
 {
     public UnityEvent OnDestroyed;
@@ -14,7 +14,7 @@ public class Damagable : MonoBehaviour
 
     public float DamageFromCollision;
 
-    private Collider2D _collider;
+    private Collider _collider;
 
     public int Health
     {
@@ -30,7 +30,7 @@ public class Damagable : MonoBehaviour
     {
         Destroyed = false;
         
-        _collider = gameObject.GetComponent<Collider2D>();
+        _collider = gameObject.GetComponent<Collider>();
     }
 
     public void Damage(int amount)
@@ -50,12 +50,12 @@ public class Damagable : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (DamageFromCollision <= 0)
             return;
 
-        Rigidbody2D otherRb = collision.gameObject.GetComponent<Rigidbody2D>();
+        Rigidbody otherRb = collision.gameObject.GetComponent<Rigidbody>();
 
         if (otherRb == null)
             return;
