@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Bow
   m_EditorClassIdentifier: 
   MinRange: 3
-  MaxRange: 20
+  MaxRange: 30
   Damage: 3
   IsRanged: 1
-  ProjectileForce: 10
+  ProjectileForce: 15
   Projectile: {fileID: 8698741339451621224, guid: 4e928f8faf516ed40a7702109d46c5cd,
     type: 3}
