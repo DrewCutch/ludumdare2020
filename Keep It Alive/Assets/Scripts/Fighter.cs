@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(ForceMotor))]
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Actor))]
 [RequireComponent(typeof(Weapon))]
-public class Enemy : MonoBehaviour
+public class Fighter : MonoBehaviour
 {
     public int AttackCost;
+
+    public Transform Goal;
 
     private Actor _self;
     private ForceMotor _motor;
@@ -28,7 +31,12 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if (_target == null)
+        {
+            if (Goal != null && _motor.Target != Goal)
+                _motor.SetTarget(Goal, 1, 2);
+
             return;
+        }
 
         // If in range and has energy to attack
         if (Vector3.Distance(transform.position, _target.transform.position) < _weapon.WeaponType.MaxRange &&
@@ -58,7 +66,26 @@ public class Enemy : MonoBehaviour
             return;
         
         _target = enemy;
+        _target.Health.OnDestroyed.AddListener(GetNewTarget);
+
         _motor.SetTarget(enemy.transform, _weapon.WeaponType.MinRange, _weapon.WeaponType.MaxRange);
+    }
+
+    private void GetNewTarget()
+    {
+        if(_motor.Target != Goal)
+            _motor.Stop();
+
+        _target = Physics.OverlapSphere(transform.position, 10)
+            .Select(collider1 => collider1.gameObject.GetComponent<Actor>()).First(act => act != null && act != _target);
+
+        if(_target != null)
+            SetTarget(_target.transform);
+    }
+
+    private void SetTarget(Transform target)
+    {
+        _motor.SetTarget(target, _weapon.WeaponType.MinRange, _weapon.WeaponType.MaxRange);
     }
 
     private void OnTriggerExit(Collider other)
