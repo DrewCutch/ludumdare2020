@@ -198,6 +198,9 @@ GameObject:
   - component: {fileID: 6285132512948281648}
   - component: {fileID: 6285132512948281649}
   - component: {fileID: 6285132512948281650}
+  - component: {fileID: -8788543510907423819}
+  - component: {fileID: 3371397117481623756}
+  - component: {fileID: 381270031623735909}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
@@ -264,9 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 0}
-  DragStrength: 16
-  Damping: 0.6
-  Lift: 2
+  GrabProfile: {fileID: 11400000, guid: 51abfc5181a272b4cb20f1b641122778, type: 2}
 --- !u!114 &6285132512948281654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackCost: 7
+  Goal: {fileID: 0}
 --- !u!114 &6285132512948281655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,10 +308,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hopper: 1
-  HopInterval: 0.6
-  Speed: 2.5
+  HopInterval: 0.7
+  Speed: 2.9
   MaxSpeed: 1
-  HopScale: 0.8
+  HopScale: 0.6
 --- !u!114 &6285132512948281649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,8 +343,61 @@ MonoBehaviour:
   OnDestroyed:
     m_PersistentCalls:
       m_Calls: []
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3371397117481623756}
+        m_MethodName: Kill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   DamageFromCollision: 0
-  _health: 10
+  _health: 30
+--- !u!114 &-8788543510907423819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736642088280295154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b35c0c94c965b43884b04f3b2ac1ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joints: []
+  colliders: []
+--- !u!114 &3371397117481623756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736642088280295154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2d21af68b95ae42bfc3842c721dfc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &381270031623735909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736642088280295154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716c1ffa3356df4428e8de69b10e1ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pool: {fileID: 0}
 --- !u!1 &3736642090242410386
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +828,7 @@ HingeJoint:
   m_Anchor: {x: -0.06, y: 0.1, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.22800064, y: -0.2479999, z: 0}
+  m_ConnectedAnchor: {x: 0.22800016, y: -0.2479999, z: 0}
   m_UseSpring: 1
   m_Spring:
     spring: 1.25
@@ -839,7 +894,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 30
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6358503006660366194
 GameObject:
@@ -951,7 +1006,7 @@ HingeJoint:
   m_Anchor: {x: 0.1, y: 0.1, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3600006, y: 0.1400001, z: 0}
+  m_ConnectedAnchor: {x: -0.36000013, y: 0.1400001, z: 0}
   m_UseSpring: 1
   m_Spring:
     spring: 1.25
@@ -1085,7 +1140,7 @@ HingeJoint:
   m_Anchor: {x: 0.06, y: 0.1, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.17100143, y: -0.2479999, z: 0}
+  m_ConnectedAnchor: {x: -0.171, y: -0.2479999, z: 0}
   m_UseSpring: 1
   m_Spring:
     spring: 1.25
