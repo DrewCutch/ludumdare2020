@@ -21,12 +21,13 @@ public class Explosive : MonoBehaviour
 
     public void Explode()
     {
-        Collider2D[] overlapping = Physics2D.OverlapCircleAll((Vector2)transform.position, Strength);
-        List<Rigidbody2D> bodies = overlapping.Select(col => col.gameObject.GetComponent<Rigidbody2D>()).Where(rb => rb != null).ToList();
+        Collider[] overlapping = Physics.OverlapSphere(transform.position, Strength);
+        List<Rigidbody> bodies = overlapping.Select(col => col.gameObject.GetComponent<Rigidbody>()).
+            Where(rb => rb != null && rb.gameObject != gameObject).ToList();
 
         print("exploded!");
 
-        foreach (Rigidbody2D body in bodies)
+        foreach (Rigidbody body in bodies)
         {
             print("sent body!");
 
@@ -34,7 +35,7 @@ public class Explosive : MonoBehaviour
 
             float distance = (body.transform.position - transform.position).magnitude;
 
-            body.AddForce(dir * Strength *  (1 / distance), ForceMode2D.Impulse);
+            body.AddForce(dir * Strength *  (1 / distance), ForceMode.Impulse);
         }
     }
 }
