@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Actor))]
 [RequireComponent(typeof(Weapon))]
+[RequireComponent(typeof(Damagable))]
 public class Fighter : MonoBehaviour
 {
     public int AttackCost;
@@ -16,6 +17,7 @@ public class Fighter : MonoBehaviour
     private Actor _self;
     private ForceMotor _motor;
     private Weapon _weapon;
+    private Damagable _damagable;
 
 
     private Actor _target;
@@ -25,6 +27,9 @@ public class Fighter : MonoBehaviour
         _self = gameObject.GetComponent<Actor>();
         _motor = gameObject.GetComponent<ForceMotor>();
         _weapon = gameObject.GetComponent<Weapon>();
+        _damagable = gameObject.GetComponent<Damagable>();
+
+        _damagable.OnDamaged.AddListener(Attacked);
     }
 
     // Update is called once per frame
@@ -71,13 +76,19 @@ public class Fighter : MonoBehaviour
         _motor.SetTarget(enemy.transform, _weapon.WeaponType.MinRange, _weapon.WeaponType.MaxRange);
     }
 
+    private void Attacked()
+    {
+        if(_target == null)
+            GetNewTarget();
+    }
+
     private void GetNewTarget()
     {
         if(_motor.Target != Goal)
             _motor.Stop();
 
         _target = Physics.OverlapSphere(transform.position, 10)
-            .Select(collider1 => collider1.gameObject.GetComponent<Actor>()).First(act => act != null && act != _target);
+            .Select(collider1 => collider1.gameObject.GetComponent<Actor>()).FirstOrDefault(act => act != null && act != _target && act != _self);
 
         if(_target != null)
             SetTarget(_target.transform);
