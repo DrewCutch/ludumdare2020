@@ -15,6 +15,8 @@ MonoBehaviour:
   MinRange: 2
   MaxRange: 4
   Damage: 10
+  KnockBack: 3
   IsRanged: 0
   ProjectileForce: 0
   Projectile: {fileID: 0}
+  Lead: 0
