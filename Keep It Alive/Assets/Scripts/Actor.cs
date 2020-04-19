@@ -44,7 +44,7 @@ public class Actor : MonoBehaviour
         }
     }
 
-    public bool HasEnergy(int amount) => amount < Energy;
+    public bool HasEnergy(int amount) => amount <= Energy;
 
     public bool UseEnergy(int amount)
     {
