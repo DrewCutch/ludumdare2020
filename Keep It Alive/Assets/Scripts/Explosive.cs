@@ -41,7 +41,7 @@ public class Explosive : MonoBehaviour
 
             //body.AddForce(dir * Strength *  (1 / distance), ForceMode.Impulse);
 
-            body.AddExplosionForce(Strength, transform.position, Strength);
+            body.AddExplosionForce(Strength, transform.position, distance, 1.0f, ForceMode.Impulse);
 
             //body.gameObject.GetComponent<Damagable>()?.Damage((int) (Strength / distance));
         }
