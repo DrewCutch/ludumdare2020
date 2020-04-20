@@ -12,6 +12,8 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource HitSound;
 
+    public AudioSource KillSound;
+
 
     void Awake()
     {
@@ -29,6 +31,7 @@ public class SoundManager : MonoBehaviour
                 HitSound.Play();
                 break;
             case SoundFire.SoundKind.Death:
+                KillSound.Play();
                 break;
             case SoundFire.SoundKind.Break:
                 break;

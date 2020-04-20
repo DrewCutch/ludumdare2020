@@ -73,10 +73,12 @@ public class Damagable : MonoBehaviour
 
         Rigidbody otherRb = collision.gameObject.GetComponent<Rigidbody>();
 
-        if (otherRb == null)
-            return;
+        float impactStrength = Vector3.Dot(collision.relativeVelocity, collision.contacts[0].normal);
 
-        float impactStrength = collision.relativeVelocity.sqrMagnitude * otherRb.mass;
+        impactStrength *= impactStrength;
+
+        if (otherRb != null)
+            impactStrength *= otherRb.mass;
 
         Damage((int)(impactStrength * DamageFromCollision));
     }

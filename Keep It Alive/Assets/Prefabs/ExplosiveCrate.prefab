@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8cf73e2dd29ea343b2bd76975271d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Strength: 50
+  Strength: 80
   DestroyAfter: 2
 --- !u!114 &1219533710811439569
 MonoBehaviour:
@@ -160,7 +160,7 @@ MonoBehaviour:
   OnHealed:
     m_PersistentCalls:
       m_Calls: []
-  DamageFromCollision: 3
+  DamageFromCollision: 0.1
   _health: 3
 --- !u!114 &6752898590575395621
 MonoBehaviour:
