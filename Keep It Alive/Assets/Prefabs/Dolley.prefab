@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  MaxSpeed: 0
+  MaxSpeed: 1
 --- !u!1 &1300684708450441847
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 1300684708450441855}
   - component: {fileID: 1300684708450441854}
   - component: {fileID: 1300684708450441853}
-  - component: {fileID: 1300684708450441852}
   - component: {fileID: 1300684708450441851}
   - component: {fileID: 1300684708450441850}
   - component: {fileID: 1300684708450441849}
@@ -182,18 +181,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &1300684708450441852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300684708450441847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa10b7c025142e4e9dcc8c6f56dbd90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1300684708450441851
 MonoBehaviour:
   m_ObjectHideFlags: 0
