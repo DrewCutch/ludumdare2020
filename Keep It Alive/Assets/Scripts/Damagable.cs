@@ -5,6 +5,7 @@ using Boo.Lang.Runtime.DynamicDispatching;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Collider))]
 public class Damagable : MonoBehaviour
@@ -13,11 +14,15 @@ public class Damagable : MonoBehaviour
 
     public UnityEvent OnDamaged;
 
+    public UnityEvent OnHealed;
+
     public bool Destroyed { get; private set; }
 
     public float DamageFromCollision;
 
     private Collider _collider;
+
+    public int MaxHealth { get; private set; }
 
     public int Health
     {
@@ -32,6 +37,7 @@ public class Damagable : MonoBehaviour
     void Start()
     {
         Destroyed = false;
+        MaxHealth = _health;
         
         _collider = gameObject.GetComponent<Collider>();
     }
@@ -51,10 +57,13 @@ public class Damagable : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Heal(int amount)
     {
-        
+        if (amount == 0)
+            return;
+
+        Health = Mathf.Min(Health + amount, MaxHealth);
+        OnHealed?.Invoke();
     }
 
     void OnCollisionEnter(Collision collision)

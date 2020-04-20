@@ -1422,7 +1422,7 @@ ParticleSystem:
       repeatInterval: 0.3
       probability: 1
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -1433,22 +1433,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.75
-          inSlope: 0.25
-          outSlope: 0.25
-          tangentMode: 34
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 0.25
-          outSlope: 0.25
-          tangentMode: 34
+          value: 0
+          inSlope: -2
+          outSlope: -2
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -1754,10 +1754,10 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.9056604, g: 0.3367697, b: 0.32039872, a: 1}
-        key1: {r: 0.9150943, g: 0.5051251, b: 0.2978373, a: 1}
-        key2: {r: 0.9528302, g: 0.8934799, b: 0.33708617, a: 0}
-        key3: {r: 1, g: 1, b: 1, a: 0}
+        key0: {r: 0.7072676, g: 0.44918123, b: 0.9245283, a: 1}
+        key1: {r: 0.6539644, g: 0.23949803, b: 0.735849, a: 1}
+        key2: {r: 0.5244564, g: 0.18689926, b: 0.5283019, a: 0}
+        key3: {r: 0.3390542, g: 0.09772159, b: 0.33962262, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -1934,6 +1934,10 @@ ParticleSystem:
     - sprite: {fileID: -8092295105046505211, guid: 30a8b41da6554df4597f5341ea53dd44,
         type: 3}
     - sprite: {fileID: -5243772346084840235, guid: 30a8b41da6554df4597f5341ea53dd44,
+        type: 3}
+    - sprite: {fileID: -4009157606203222040, guid: 30a8b41da6554df4597f5341ea53dd44,
+        type: 3}
+    - sprite: {fileID: 3730887761424324059, guid: 30a8b41da6554df4597f5341ea53dd44,
         type: 3}
     flipU: 0
     flipV: 0
