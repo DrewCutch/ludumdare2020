@@ -93,6 +93,16 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.x
       value: 0.375
       objectReference: {fileID: 0}
+    - target: {fileID: 3371397117481623756, guid: 017351905fe93fd48b463745d76af2f8,
+        type: 3}
+      propertyPath: Hide.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371397117481623756, guid: 017351905fe93fd48b463745d76af2f8,
+        type: 3}
+      propertyPath: Hide.Array.data[6]
+      value: 
+      objectReference: {fileID: 1353178481}
     - target: {fileID: 3425698783608304203, guid: 017351905fe93fd48b463745d76af2f8,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -101,7 +111,7 @@ PrefabInstance:
     - target: {fileID: 3736642088280295154, guid: 017351905fe93fd48b463745d76af2f8,
         type: 3}
       propertyPath: m_Name
-      value: Skeleton (2)
+      value: ArmorMelee
       objectReference: {fileID: 0}
     - target: {fileID: 3736642088280295155, guid: 017351905fe93fd48b463745d76af2f8,
         type: 3}

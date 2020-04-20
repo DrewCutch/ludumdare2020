@@ -103,6 +103,16 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: 0.13999987
       objectReference: {fileID: 0}
+    - target: {fileID: 7833133397989831606, guid: 70121acff9c535c4db32cf11cc2ed89a,
+        type: 3}
+      propertyPath: Hide.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833133397989831606, guid: 70121acff9c535c4db32cf11cc2ed89a,
+        type: 3}
+      propertyPath: Hide.Array.data[6]
+      value: 
+      objectReference: {fileID: 4999581190748970033}
     - target: {fileID: 7924079587642827057, guid: 70121acff9c535c4db32cf11cc2ed89a,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
