@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd65943b3eec4c42a673a73918fe6d5, type: 3}
   m_Name: OPGrab
   m_EditorClassIdentifier: 
-  DragStrength: 10
+  DragStrength: 20
   AlignStrength: 0
   Damping: 0
   Lift: 0
