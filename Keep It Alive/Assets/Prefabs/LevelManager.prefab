@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Levels:
   - MainMenu
-  - LevelBase
+  - Level1
 --- !u!114 &7930935870271785405
 MonoBehaviour:
   m_ObjectHideFlags: 0
