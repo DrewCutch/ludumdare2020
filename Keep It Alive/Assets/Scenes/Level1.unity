@@ -5092,16 +5092,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1300684708450441853, guid: bb4aae082c394b645b5d79470ddc7111,
-        type: 3}
-      propertyPath: m_StopNaN
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300684708450441853, guid: bb4aae082c394b645b5d79470ddc7111,
-        type: 3}
-      propertyPath: m_RequiresDepthTextureOption
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7012414249610486915, guid: bb4aae082c394b645b5d79470ddc7111,
         type: 3}
       propertyPath: Target
