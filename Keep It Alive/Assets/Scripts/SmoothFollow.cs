@@ -20,7 +20,7 @@ public class SmoothFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float targetX = (Target.position.x + IsoUtils.ScreenToIso(Input.mousePosition).x) / 2;
+        float targetX = (Target.position.x * 2 + IsoUtils.ScreenToIso(Input.mousePosition).x) / 3;
 
         transform.position = Vector3.Lerp(transform.position,
             new Vector3(targetX, transform.position.y, transform.position.z), Time.deltaTime * MaxSpeed);
