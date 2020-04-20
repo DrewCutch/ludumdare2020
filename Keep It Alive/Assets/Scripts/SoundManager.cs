@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Media;
+using UnityEngine;
+
+public class SoundManager : MonoBehaviour
+{
+    public static SoundManager MainManager;
+
+    public AudioSource ExplosionSound;
+
+    public AudioSource HitSound;
+
+
+    void Awake()
+    {
+        MainManager = this;
+    }
+
+    public void Play(SoundFire.SoundKind sound)
+    {
+        switch (sound)
+        {
+            case SoundFire.SoundKind.Explosion:
+                ExplosionSound.Play();
+                break;
+            case SoundFire.SoundKind.Hit:
+                HitSound.Play();
+                break;
+            case SoundFire.SoundKind.Death:
+                break;
+            case SoundFire.SoundKind.Break:
+                break;
+            case SoundFire.SoundKind.Heal:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(sound), sound, null);
+        }
+    }
+}
