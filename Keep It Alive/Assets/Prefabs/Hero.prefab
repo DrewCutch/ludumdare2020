@@ -182,7 +182,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: RestartLevel
+        m_MethodName: GameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -206,6 +206,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 918024512}
+        m_MethodName: Fire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHealed:
+    m_PersistentCalls:
+      m_Calls: []
   DamageFromCollision: 0
   _health: 100
 --- !u!114 &951412523
@@ -238,6 +252,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shadow: {fileID: 1022984576}
+--- !u!114 &918024512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5364285981438559613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c30ad768603b524eb1b0401da4abd99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sound: 1
 --- !u!1001 &3356232011084414032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -275,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 2330255655025103935, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.4499998
+      value: -0.45000076
       objectReference: {fileID: 0}
     - target: {fileID: 2330255655025103935, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}
@@ -343,7 +370,7 @@ PrefabInstance:
     - target: {fileID: 7142812498920443693, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.171
+      value: 0.17099953
       objectReference: {fileID: 0}
     - target: {fileID: 7142812498920443693, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}
@@ -358,17 +385,17 @@ PrefabInstance:
     - target: {fileID: 7269511934078875948, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.6
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 7269511934078875948, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.38
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7269511934078875948, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.09
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7269511934078875948, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}
@@ -440,7 +467,7 @@ PrefabInstance:
     - target: {fileID: 7269580832909657105, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.171
+      value: -0.17099953
       objectReference: {fileID: 0}
     - target: {fileID: 7269580832909657105, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}
@@ -450,7 +477,7 @@ PrefabInstance:
     - target: {fileID: 8467412308858444961, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.45999956
+      value: 0.45999908
       objectReference: {fileID: 0}
     - target: {fileID: 8467412308858444961, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}
@@ -476,7 +503,7 @@ PrefabInstance:
         type: 3}
       propertyPath: GrabProfile
       value: 
-      objectReference: {fileID: 11400000, guid: 51abfc5181a272b4cb20f1b641122778,
+      objectReference: {fileID: 11400000, guid: 9b0df4c04587d024c8cd5b704bf196a8,
         type: 2}
     - target: {fileID: 8697506810744442260, guid: 755737a296f7266498584ab97ed220d1,
         type: 3}

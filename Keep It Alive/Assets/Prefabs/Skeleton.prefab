@@ -347,7 +347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d72ad3376a53f5439ee4c4464c2a2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 0}
   GrabProfile: {fileID: 11400000, guid: 51abfc5181a272b4cb20f1b641122778, type: 2}
 --- !u!114 &6285132512948281654
 MonoBehaviour:
@@ -460,7 +459,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  DamageFromCollision: 0.1
+  OnHealed:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageFromCollision: 0.05
   _health: 30
 --- !u!114 &3371397117481623756
 MonoBehaviour:
@@ -990,7 +992,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 40
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6358503006660366194
 GameObject:
