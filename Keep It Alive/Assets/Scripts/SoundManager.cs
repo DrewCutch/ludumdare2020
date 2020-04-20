@@ -17,7 +17,8 @@ public class SoundManager : MonoBehaviour
 
     void Awake()
     {
-        MainManager = this;
+        if(MainManager == null)
+            MainManager = this;
     }
 
     public void Play(SoundFire.SoundKind sound)
