@@ -40,6 +40,8 @@ public class Explosive : MonoBehaviour
             //body.AddForce(dir * Strength *  (1 / distance), ForceMode.Impulse);
 
             body.AddExplosionForce(Strength, transform.position, Strength);
+
+            //body.gameObject.GetComponent<Damagable>()?.Damage((int) (Strength / distance));
         }
 
         Shaker.MainCameraShaker.ShakeFrom(transform.position, Strength);

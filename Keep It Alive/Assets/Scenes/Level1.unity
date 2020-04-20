@@ -121,7 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &32722397
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 7663657884783736081, guid: fb6168f031177104e99f7b74d23d1a6a,
@@ -261,8 +260,6 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &54697525
-GameObject:
-  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -809,13 +806,9 @@ PrefabInstance:
       value: 0.22799969
       objectReference: {fileID: 0}
     - target: {fileID: 7259704244049488144, guid: 017351905fe93fd48b463745d76af2f8,
-        type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -0.0000009536743
       objectReference: {fileID: 0}
-    - target: {fileID: 8606376225631284192, guid: 017351905fe93fd48b463745d76af2f8,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
       value: -0.36000156
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -922,11 +915,7 @@ PrefabInstance:
     - target: {fileID: 3736857359580068814, guid: 017351905fe93fd48b463745d76af2f8,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.17100525
       objectReference: {fileID: 0}
-    - target: {fileID: 3736857359580068814, guid: 017351905fe93fd48b463745d76af2f8,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3754058872929448178, guid: 017351905fe93fd48b463745d76af2f8,

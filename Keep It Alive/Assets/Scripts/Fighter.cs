@@ -61,7 +61,7 @@ public class Fighter : MonoBehaviour
         if (enemy == null)
             return;
 
-        if (_self.Alignment.HasFlag(enemy.Alignment))
+        if (_self.Alignment == enemy.Alignment)
             return;
 
         //Ignore if further than current target
@@ -88,7 +88,7 @@ public class Fighter : MonoBehaviour
             _motor.Stop();
 
         _target = Physics.OverlapSphere(transform.position, 10)
-            .Select(collider1 => collider1.gameObject.GetComponent<Actor>()).FirstOrDefault(act => act != null && act != _target && act != _self);
+            .Select(collider1 => collider1.gameObject.GetComponent<Actor>()).FirstOrDefault(act => act != null && act != _target && act != _self && act.Alignment != _self.Alignment);
 
         if(_target != null)
             SetTarget(_target.transform);
