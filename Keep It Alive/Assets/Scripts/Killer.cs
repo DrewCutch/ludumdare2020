@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Killer : MonoBehaviour
 {
+    public Renderer[] Hide;
+
     public void Kill()
     {
-        Destroy(gameObject, 0.2f);
+        foreach (Renderer rend in Hide)
+        {
+            rend.enabled = false;
+        }
+        Destroy(gameObject, 1);
     }
 }
