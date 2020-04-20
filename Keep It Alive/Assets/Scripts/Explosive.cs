@@ -7,6 +7,8 @@ public class Explosive : MonoBehaviour
 {
     public float Strength;
 
+    public float DestroyAfter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,9 @@ public class Explosive : MonoBehaviour
 
         print("exploded!");
 
+        if (gameObject.GetComponent<Renderer>() is Renderer rend)
+            rend.enabled = false;
+
         foreach (Rigidbody body in bodies)
         {
             print("sent body!");
@@ -39,5 +44,9 @@ public class Explosive : MonoBehaviour
         }
 
         Shaker.MainCameraShaker.ShakeFrom(transform.position, Strength);
+
+
+        if (DestroyAfter >= 0)
+            GameObject.Destroy(gameObject, DestroyAfter);
     }
 }

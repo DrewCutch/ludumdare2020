@@ -133,7 +133,7 @@ Material:
     - _BASE_COLOR_WEIGHT: 1
     - _BUMP_MAP_STRENGTH: 0.3
     - _Blend: 0
-    - _BumpScale: 1
+    - _BumpScale: 0.95
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0

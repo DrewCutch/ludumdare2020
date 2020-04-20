@@ -423,9 +423,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnDestroyed:
     m_PersistentCalls:
-      m_Calls: []
-  OnDamaged:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3371397117481623756}
         m_MethodName: Kill
@@ -438,6 +435,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
   DamageFromCollision: 0
   _health: 30
 --- !u!114 &-8788543510907423819

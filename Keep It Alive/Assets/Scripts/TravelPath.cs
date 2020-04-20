@@ -5,6 +5,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class TravelPath : MonoBehaviour
 {
+    public GameObject Waypoint;
+
     public Transform[] Points;
 
     void OnDrawGizmosSelected()
@@ -29,5 +31,10 @@ public class TravelPath : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GeneratePath(int length)
+    {
+
     }
 }
