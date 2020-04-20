@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Boo.Lang.Runtime.DynamicDispatching;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
@@ -37,6 +38,9 @@ public class Damagable : MonoBehaviour
 
     public void Damage(int amount)
     {
+        if (amount == 0)
+            return;
+
         Health -= amount;
         OnDamaged?.Invoke();
         if (Health <= 0 && !Destroyed)
@@ -65,6 +69,6 @@ public class Damagable : MonoBehaviour
 
         float impactStrength = collision.relativeVelocity.sqrMagnitude * otherRb.mass;
 
-        Damage((int) (impactStrength * DamageFromCollision));
+        Damage((int)(impactStrength * DamageFromCollision));
     }
 }
