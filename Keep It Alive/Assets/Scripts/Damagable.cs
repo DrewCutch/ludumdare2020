@@ -63,7 +63,7 @@ public class Damagable : MonoBehaviour
         if (otherRb == null)
             return;
 
-        float impactStrength = collision.relativeVelocity.magnitude * otherRb.mass;
+        float impactStrength = collision.relativeVelocity.sqrMagnitude * otherRb.mass;
 
         Damage((int) (impactStrength * DamageFromCollision));
     }
