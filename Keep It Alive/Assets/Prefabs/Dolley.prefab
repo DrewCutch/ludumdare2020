@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1300684707606361917}
-  - component: {fileID: 1300684707606361916}
   - component: {fileID: 1300684707606361915}
+  - component: {fileID: 7012414249610486915}
   m_Layer: 0
   m_Name: Dolley
   m_TagString: Untagged
@@ -33,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1300684707606361916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300684707606361914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6821aaabf2bcd224b93be50630e06d2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: {x: 0, y: 0, z: 0}
 --- !u!54 &1300684707606361915
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -62,6 +49,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7012414249610486915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300684707606361914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4addc3890c7db4548bbc51f828616c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  MaxSpeed: 0
 --- !u!1 &1300684708450441847
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +123,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -50
+  near clip plane: -100
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -205,9 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4567cb4f1766d1242b86e63e09f580c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Intensity: 10
-  Duration: 2
-  AutoRepeat: 5
+  Intensity: 0.2
 --- !u!54 &1300684708450441850
 Rigidbody:
   m_ObjectHideFlags: 0
