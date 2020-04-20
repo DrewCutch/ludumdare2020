@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1219533710811439568}
   - component: {fileID: 1219533710811439569}
   - component: {fileID: 6752898590575395621}
+  - component: {fileID: 1466181341254172055}
   m_Layer: 0
   m_Name: ExplosiveCrate
   m_TagString: Untagged
@@ -79,7 +80,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d72ad3376a53f5439ee4c4464c2a2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 0}
   GrabProfile: {fileID: 11400000, guid: 51abfc5181a272b4cb20f1b641122778, type: 2}
 --- !u!114 &1219533710811439568
 MonoBehaviour:
@@ -143,7 +143,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1466181341254172055}
+        m_MethodName: Fire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealed:
     m_PersistentCalls:
       m_Calls: []
   DamageFromCollision: 3
@@ -163,6 +177,19 @@ MonoBehaviour:
   Hide:
   - {fileID: 4778051696237864802}
   - {fileID: 1821937152967431971}
+--- !u!114 &1466181341254172055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219533710811439566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c30ad768603b524eb1b0401da4abd99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sound: 0
 --- !u!1 &2936056407972002011
 GameObject:
   m_ObjectHideFlags: 0
