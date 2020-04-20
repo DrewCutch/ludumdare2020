@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dd65943b3eec4c42a673a73918fe6d5, type: 3}
-  m_Name: BaseGrab
+  m_Name: LiftGrab
   m_EditorClassIdentifier: 
-  DragStrength: 1
-  AlignStrength: 2
-  Damping: 0.2
-  Lift: 0.5
+  DragStrength: 7
+  AlignStrength: 1
+  Damping: 1
+  Lift: 3

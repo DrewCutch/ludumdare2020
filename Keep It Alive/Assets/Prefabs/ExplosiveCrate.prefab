@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Strength: 80
+  MaxRange: 20
   DestroyAfter: 2
 --- !u!114 &1219533710811439569
 MonoBehaviour:

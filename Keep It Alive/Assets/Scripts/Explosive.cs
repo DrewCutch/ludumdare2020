@@ -7,6 +7,8 @@ public class Explosive : MonoBehaviour
 {
     public float Strength;
 
+    public float MaxRange;
+
     public float DestroyAfter;
 
     // Start is called before the first frame update
@@ -23,7 +25,7 @@ public class Explosive : MonoBehaviour
 
     public void Explode()
     {
-        Collider[] overlapping = Physics.OverlapSphere(transform.position, Strength);
+        Collider[] overlapping = Physics.OverlapSphere(transform.position, MaxRange);
         List<Rigidbody> bodies = overlapping.Select(col => col.gameObject.GetComponent<Rigidbody>()).
             Where(rb => rb != null && rb.gameObject != gameObject).ToList();
 

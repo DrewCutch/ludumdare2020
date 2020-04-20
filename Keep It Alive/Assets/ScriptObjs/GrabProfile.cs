@@ -6,6 +6,7 @@ using UnityEngine;
 public class GrabProfile : ScriptableObject
 {
     public float DragStrength;
+    public float AlignStrength;
     public float Damping;
     public float Lift;
 }

@@ -38,7 +38,7 @@ public class Draggable3D : MonoBehaviour
 
         Quaternion rotation = Quaternion.identity * Quaternion.Inverse(_rb.rotation);
         var torque = new Vector3(rotation.x, rotation.y, rotation.z) * rotation.w / Time.fixedDeltaTime;
-        _rb.AddTorque(torque);
+        _rb.AddTorque(torque * GrabProfile.AlignStrength);
         _rb.angularVelocity = Vector3.zero;
     }
 }

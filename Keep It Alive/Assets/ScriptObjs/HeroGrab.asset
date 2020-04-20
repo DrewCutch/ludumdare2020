@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: HeroGrab
   m_EditorClassIdentifier: 
   DragStrength: 0.1
+  AlignStrength: 1
   Damping: 0.2
   Lift: 0.2
