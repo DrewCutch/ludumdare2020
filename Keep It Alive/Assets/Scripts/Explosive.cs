@@ -40,7 +40,9 @@ public class Explosive : MonoBehaviour
 
             float distance = (body.transform.position - transform.position).magnitude;
 
-            body.AddForce(dir * Strength *  (1 / distance), ForceMode.Impulse);
+            //body.AddForce(dir * Strength *  (1 / distance), ForceMode.Impulse);
+
+            body.AddExplosionForce(Strength, transform.position, Strength);
         }
 
         Shaker.MainCameraShaker.ShakeFrom(transform.position, Strength);
