@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: OPGrab
   m_EditorClassIdentifier: 
   DragStrength: 20
-  AlignStrength: 0
+  AlignStrength: 30
   Damping: 0
   Lift: 0
