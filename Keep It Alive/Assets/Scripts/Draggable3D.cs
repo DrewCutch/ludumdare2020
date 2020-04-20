@@ -11,11 +11,13 @@ public class Draggable3D : MonoBehaviour
 
     private float _startHeight;
 
+    private Quaternion _initialRot;
     // Start is called before the first frame update
     void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
         _worldPlane = new Plane(Vector3.up, Vector3.zero);
+        _initialRot = transform.rotation;
     }
 
     void OnMouseDown()
@@ -36,7 +38,7 @@ public class Draggable3D : MonoBehaviour
         Vector3 dist = transform.position - target;
         _rb.AddForce(-dist * GrabProfile.DragStrength - _rb.velocity * GrabProfile.Damping);
 
-        Quaternion rotation = Quaternion.identity * Quaternion.Inverse(_rb.rotation);
+        Quaternion rotation = _initialRot * Quaternion.Inverse(_rb.rotation);
         var torque = new Vector3(rotation.x, rotation.y, rotation.z) * rotation.w / Time.fixedDeltaTime;
         _rb.AddTorque(torque * GrabProfile.AlignStrength);
         _rb.angularVelocity = Vector3.zero;
