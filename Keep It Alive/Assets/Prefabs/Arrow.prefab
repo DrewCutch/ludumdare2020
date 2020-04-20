@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8cf73e2dd29ea343b2bd76975271d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Strength: 70
+  Strength: 3
   MaxRange: 6
   DestroyAfter: 1
 --- !u!114 &206377811905367480
