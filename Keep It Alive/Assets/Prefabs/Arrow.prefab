@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 206377811905367480}
   - component: {fileID: 5653923847146310106}
   - component: {fileID: 3294255330136791088}
+  - component: {fileID: -5460546268036197385}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -274,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f7aeeb0fd124944929dbe15cc53f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 2
+  Duration: 3
   Loop: 0
   AutoStart: 1
   OnFinish:
@@ -5143,3 +5144,16 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &-5460546268036197385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8698741339451621224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d72ad3376a53f5439ee4c4464c2a2a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrabProfile: {fileID: 11400000, guid: 51abfc5181a272b4cb20f1b641122778, type: 2}

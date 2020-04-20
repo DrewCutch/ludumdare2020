@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Draggable3D : MonoBehaviour
 {
-
-    public Camera MainCamera;
-
     public GrabProfile GrabProfile;
 
     private Rigidbody _rb;
@@ -19,12 +16,6 @@ public class Draggable3D : MonoBehaviour
     {
         _rb = gameObject.GetComponent<Rigidbody>();
         _worldPlane = new Plane(Vector3.up, Vector3.zero);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void OnMouseDown()
