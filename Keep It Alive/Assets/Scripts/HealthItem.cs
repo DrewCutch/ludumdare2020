@@ -6,7 +6,7 @@ public class HealthItem : MonoBehaviour
 {
     public int HealAmount;
 
-    void OnTriggerEnter(Collider col)
+    void OnCollisionEnter(Collision col)
     {
         col.gameObject.GetComponent<Damagable>()?.Heal(HealAmount);
     }

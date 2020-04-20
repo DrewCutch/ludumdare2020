@@ -14,6 +14,7 @@ public class HealthBarController : MonoBehaviour
     void Start()
     {
         Damagable.OnDamaged.AddListener(UpdateBar);
+        Damagable.OnHealed.AddListener(UpdateBar);
     }
 
     void UpdateBar()
