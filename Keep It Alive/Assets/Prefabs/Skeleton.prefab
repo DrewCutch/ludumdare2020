@@ -388,10 +388,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hopper: 1
-  HopInterval: 0.3
-  Speed: 2.9
+  HopInterval: 0.5
+  Speed: 2.1
   MaxSpeed: 1
-  HopScale: 0.6
+  HopScale: 0.8
 --- !u!114 &6285132512948281649
 MonoBehaviour:
   m_ObjectHideFlags: 0
