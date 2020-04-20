@@ -29,9 +29,6 @@ public class Explosive : MonoBehaviour
 
         print("exploded!");
 
-        if (gameObject.GetComponent<Renderer>() is Renderer rend)
-            rend.enabled = false;
-
         foreach (Rigidbody body in bodies)
         {
             print("sent body!");
