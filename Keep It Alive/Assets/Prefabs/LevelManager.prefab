@@ -50,6 +50,10 @@ MonoBehaviour:
   Levels:
   - MainMenu
   - Level1
+  - Level2
+  - Level3
+  - Level4
+  - Level5
 --- !u!114 &7930935870271785405
 MonoBehaviour:
   m_ObjectHideFlags: 0
