@@ -976,6 +976,11 @@ PrefabInstance:
       propertyPath: Damagable
       value: 
       objectReference: {fileID: 918024504}
+    - target: {fileID: 3584206146449746763, guid: 522e8c4084983154882365e22871a820,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3584206147971944617, guid: 522e8c4084983154882365e22871a820,
         type: 3}
       propertyPath: m_Name
@@ -1382,8 +1387,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Luckily the hero is here...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 52a925668446f4242bc682ab545a3de9, type: 2}
+  m_sharedMaterial: {fileID: -7647459569173176018, guid: 52a925668446f4242bc682ab545a3de9,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1506,7 +1512,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -7647459569173176018, guid: 52a925668446f4242bc682ab545a3de9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1862,8 +1868,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Olympus is under attack!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 52a925668446f4242bc682ab545a3de9, type: 2}
+  m_sharedMaterial: {fileID: -7647459569173176018, guid: 52a925668446f4242bc682ab545a3de9,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1986,7 +1993,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -7647459569173176018, guid: 52a925668446f4242bc682ab545a3de9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2347,8 +2354,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Keep the Hero alive!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 52a925668446f4242bc682ab545a3de9, type: 2}
+  m_sharedMaterial: {fileID: -7647459569173176018, guid: 52a925668446f4242bc682ab545a3de9,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2471,7 +2479,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -7647459569173176018, guid: 52a925668446f4242bc682ab545a3de9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6188,11 +6196,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unlucky
       objectReference: {fileID: 0}
+    - target: {fileID: 3272290308551932038, guid: 53bf25335eafd0a47956380fab1548e5,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 52a925668446f4242bc682ab545a3de9,
+        type: 2}
+    - target: {fileID: 3272290308551932038, guid: 53bf25335eafd0a47956380fab1548e5,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7647459569173176018, guid: 52a925668446f4242bc682ab545a3de9,
+        type: 2}
     - target: {fileID: 3272290308551932040, guid: 53bf25335eafd0a47956380fab1548e5,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3272290308551932043, guid: 53bf25335eafd0a47956380fab1548e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -7647459569173176018, guid: 52a925668446f4242bc682ab545a3de9,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53bf25335eafd0a47956380fab1548e5, type: 3}
 --- !u!1001 &7930935868630558277
