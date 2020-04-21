@@ -33,6 +33,12 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(Levels[CurrentLevelI]);
     }
 
+    public void GoToLevel(int level)
+    {
+        CurrentLevelI = level % Levels.Length;
+        RestartLevel();
+    }
+
     public void GoToNextLevel()
     {
         CurrentLevelI = (CurrentLevelI + 1) % Levels.Length;
